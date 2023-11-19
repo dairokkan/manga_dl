@@ -43,9 +43,14 @@ class mangakatana {
   }
 
   chapter pageListParse(http.Response response) {
+    print(response.request!.url);
     print('Parsing webpage');
     Document document = parser.parse(response.body);
-    Element script = document.getElementsByTagName('script')[13];
+    /*for(int x=0; x<document.getElementsByTagName('script').length; x++) {
+      print(x);
+      print(document.getElementsByTagName('script')[x].text);
+    }*/
+    Element script = document.getElementsByTagName('script')[16];
     List<String> ar = script.text.split("var thzq=[")[1].split(",];")[0].split(',');
     for(int i = 0; i<ar.length; i++) {
       ar[i] = ar[i].split('\'')[1];

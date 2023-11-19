@@ -11,8 +11,6 @@ void main(List<String> arguments) async {
   mangakatana mk = mangakatana();
   print("Query");
   String query = stdin.readLineSync()??'';
-
-  print(query);
   List<manga> searchResult = mk.searchRequestParse(await mk.searchRequest(query, 1));
 
   for(int i=0; i<searchResult.length; i++) {
