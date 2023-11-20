@@ -25,7 +25,7 @@ void main(List<String> arguments) async {
   print("Chapter");
   final String cn = stdin.readLineSync()!;
 
-  String filepath = join(Directory.current.path, title);
+  String filepath = join("C:\\Users\\asus\\Downloads");
   chapter c = mk.pageListParse(await mk.pageListRequest(url, int.parse(cn)));
   pw.Document pdf = pw.Document();
 
@@ -58,7 +58,8 @@ void main(List<String> arguments) async {
 
   if(filetype=="pdf") {
     print('Creating PDF');
-    File(join(filepath, title, 'Ch${c.chapterNumber}: ${c.chapterName}')).create(recursive: true)
+    print('${filepath}\\${title}\\Ch${c.chapterNumber}: ${c.chapterName}.pdf');
+    File('${filepath}\\${title}\\Ch${c.chapterNumber}.pdf').create(recursive: true)
     .then((File file) async {
       await file.writeAsBytes(await pdf.save());
     });

@@ -10,12 +10,10 @@ class mangakatana {
   final http.Client client = http.Client();
 
   Future<http.Response> searchRequest(String query, int page) async {
-    print("searchRequest");
     return await client.get(Uri.parse('$baseUrl/page/$page/?search=$query&search_by=book_name'));
   }
 
   List<manga> searchRequestParse(http.Response response) {
-    print("searchRequestParse");
     List<String> segments = (response.request!=null)?response.request!.url.pathSegments:[];
     Document document = parser.parse(response.body);
     if(segments[0] == "manga" && segments[1]!="page") {
