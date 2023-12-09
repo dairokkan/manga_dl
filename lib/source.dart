@@ -18,6 +18,6 @@ class source {
     }
 
     chapter pageListParse(http.Response response) {
-        return chapter();
+        return chapter(chapterName: "", chapterNumber: 0, urls: []);
     }
 }

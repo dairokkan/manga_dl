@@ -25,7 +25,7 @@ void main() async {
   print("Chapter");
   final String cn = stdin.readLineSync()!;
 
-  String filepath = join("C:\\Users\\asus\\Downloads");
+  String filepath = Directory.current.path;
   chapter c = mk.pageListParse(await mk.pageListRequest(url, int.parse(cn)));
   pw.Document pdf = pw.Document();
 
