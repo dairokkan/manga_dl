@@ -7,7 +7,7 @@ import 'dart:io';
 import 'package:manga_dl/chapter.dart';
 import 'package:path/path.dart';
 
-void main(List<String> arguments) async {
+void main() async {
   mangakatana mk = mangakatana();
   print("Query");
   String query = stdin.readLineSync()??'';

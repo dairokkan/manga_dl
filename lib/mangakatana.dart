@@ -48,8 +48,13 @@ class mangakatana {
       print(x);
       print(document.getElementsByTagName('script')[x].text);
     }*/
-    Element script = document.getElementsByTagName('script')[16];
-    List<String> ar = script.text.split("var thzq=[")[1].split(",];")[0].split(',');
+    Element? script;
+    for(int x=0; x<document.getElementsByTagName('script').length; x++) {
+      if(document.getElementsByTagName('script')[x].text.contains("var thzq=[")) {
+        script = document.getElementsByTagName('script')[x];
+      }
+    }
+    List<String> ar = script!.text.split("var thzq=[")[1].split(",];")[0].split(',');
     for(int i = 0; i<ar.length; i++) {
       ar[i] = ar[i].split('\'')[1];
     }
